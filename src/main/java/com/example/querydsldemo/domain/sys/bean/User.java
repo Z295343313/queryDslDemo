@@ -1,6 +1,7 @@
 package com.example.querydsldemo.domain.sys.bean;
 
 import lombok.Data;
+import java.sql.Timestamp;
 
 /**
  * 用户
@@ -15,12 +16,5 @@ public class User {
 
     private String name;
 
-    public User() {
-    }
-
-    public User(String username, String userPassword, String name) {
-        this.username = username;
-        this.userPassword = userPassword;
-        this.name = name;
-    }
+    private Timestamp createdDate;
 }

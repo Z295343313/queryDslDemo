@@ -5,6 +5,7 @@ import com.example.querydsldemo.interfaces.persistent.database.sys.entity.QSysUs
 import com.example.querydsldemo.interfaces.persistent.database.sys.entity.SysUser;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.Expressions;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.util.StringUtils;
@@ -18,7 +19,7 @@ public interface UserRepository extends JpaRepository<SysUser, String>, Querydsl
 
     /**
      * 单表查询
-     * where user_name = '' and name like '%%'
+     * where user_name = '' and name like '%%' and date( created_date ) = date( ? )
      *
      * @param query 查询条件
      * @return Predicate
@@ -31,6 +32,9 @@ public interface UserRepository extends JpaRepository<SysUser, String>, Querydsl
         }
         if (StringUtils.hasText(query.getName())) {
             builder.and(user.name.like("%" + query.getName() + "%"));
+        }
+        if (query.getCreatedDate() != null) {
+            builder.and(Expressions.stringTemplate("date({0})", user.createdDate).eq(Expressions.stringTemplate("date({0})", query.getCreatedDate())));
         }
         return builder;
     }

@@ -99,4 +99,9 @@ public class UserApi {
     public ResponseEntity<?> userResourcePage(int page, int size) {
         return new ResponseEntity<>(userSearch.findUserResource(PageRequest.of(page, size)), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/sqlQuery")
+    public ResponseEntity<?> sqlQuery() {
+        return new ResponseEntity<>(userSearch.sqlQuery(), HttpStatus.OK);
+    }
 }
