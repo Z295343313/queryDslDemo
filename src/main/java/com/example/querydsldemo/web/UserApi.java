@@ -80,8 +80,8 @@ public class UserApi {
      * 查询角色
      */
     @GetMapping(value = "/role")
-    public ResponseEntity<?> findRole(Role role, int page, int size) {
-        return new ResponseEntity<>(userSearch.findAllRole(role, PageRequest.of(page, size)), HttpStatus.OK);
+    public ResponseEntity<?> findRole(Role role) {
+        return new ResponseEntity<>(userSearch.findAllRole(role), HttpStatus.OK);
     }
 
     /**

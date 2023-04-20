@@ -24,8 +24,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,11 +44,14 @@ public class UserSearch {
     private final SQLQueryFactory sqlQueryFactory;
 
     public Page<SysUser> findAllUser(User user, PageRequest pageRequest) {
-        return userRepository.findAll(userRepository.toPredicate(user), pageRequest);
+        return userRepository.findAll(userRepository.toPredicate(user), pageRequest.withSort(Sort.Direction.ASC, "name"));
     }
 
-    public Page<SysRole> findAllRole(Role role, PageRequest pageRequest) {
-        return roleRepository.findAll(roleRepository.toPredicate(role), pageRequest);
+    public List<SysRole> findAllRole(Role role) {
+        Iterable<SysRole> all = roleRepository.findAll(roleRepository.toPredicate(role), Sort.by(Sort.Direction.ASC, "name"));
+        List<SysRole> list = new ArrayList<>(4);
+        all.forEach(list::add);
+        return list;
     }
 
     public List<UserResource> findUserResource() {
