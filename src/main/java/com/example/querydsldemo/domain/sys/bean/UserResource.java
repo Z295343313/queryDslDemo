@@ -3,22 +3,14 @@ package com.example.querydsldemo.domain.sys.bean;
 import lombok.Data;
 
 /**
- * UserRole
+ * UserResource
  *
  * @author ：Zxh
  */
 @Data
-public class UserRole {
+public class UserResource {
     private String username;
     private String name;
-    private String roleName;
-
-    public UserRole() {
-    }
-
-    public UserRole(String username, String name, String roleName) {
-        this.username = username;
-        this.name = name;
-        this.roleName = roleName;
-    }
+    private String resourceCode;
+    private String resourceName;
 }

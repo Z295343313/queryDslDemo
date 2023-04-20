@@ -1,8 +1,8 @@
-package com.example.querydsldemo.interfaces.persistent.database.repository;
+package com.example.querydsldemo.interfaces.persistent.database.sys.repository;
 
-import com.example.querydsldemo.domain.user.bean.User;
-import com.example.querydsldemo.interfaces.persistent.database.entity.QSysUser;
-import com.example.querydsldemo.interfaces.persistent.database.entity.SysUser;
+import com.example.querydsldemo.domain.sys.bean.User;
+import com.example.querydsldemo.interfaces.persistent.database.sys.entity.QSysUser;
+import com.example.querydsldemo.interfaces.persistent.database.sys.entity.SysUser;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 import org.springframework.data.jpa.repository.JpaRepository;

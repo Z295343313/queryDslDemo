@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * @author Administrator
  */
-public interface SysUserResourceRepository extends JpaRepository<SysUserResource, String> {
+public interface UserResourceRepository extends JpaRepository<SysUserResource, String> {
 
 }

@@ -1,4 +1,4 @@
-package com.example.querydsldemo.domain.user.bean;
+package com.example.querydsldemo.domain.sys.bean;
 
 import lombok.Data;
 
@@ -10,6 +10,4 @@ import lombok.Data;
 @Data
 public class Role {
     private String roleName;
-
-    private String roleCode;
 }

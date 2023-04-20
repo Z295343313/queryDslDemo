@@ -1,4 +1,4 @@
-package com.example.querydsldemo.domain.user.bean;
+package com.example.querydsldemo.domain.sys.bean;
 
 import lombok.Data;
 
@@ -15,19 +15,12 @@ public class User {
 
     private String name;
 
-    private String roleCode;
-
-    private String roleName;
-
-
     public User() {
     }
 
-    public User(String username, String userPassword, String name, String roleCode, String roleName) {
+    public User(String username, String userPassword, String name) {
         this.username = username;
         this.userPassword = userPassword;
         this.name = name;
-        this.roleCode = roleCode;
-        this.roleName = roleName;
     }
 }
